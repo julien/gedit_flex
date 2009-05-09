@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+ Author: Julien Castelain <jcastelain@gmail.com>
+ Copyright (C) 2008 Julien Castelain <jcastelain@gmail.com>
+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+
+ You should have received a copy of the GNU Library General Public
+ License along with this library; if not, write to the
+ Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ Boston, MA 02111-1307, USA.
+
+-->
+<language id="mxml" _name="MXML" version="2.0" _section="Markup">
+    <metadata>
+      	<property name="mimetypes">text/mxml</property>
+      	<property name="globs">*.mxml</property>
+      	<property name="block-comment-start">&lt;!--</property>
+		<property name="block-comment-end">--&gt;</property>
+    </metadata>
+    
+    <definitions>
+        
+        <context id="as-block">
+            <start>&lt;!\[CDATA\[</start>
+            <end>\]\]&gt;</end>
+            <include>
+                <context sub-pattern="0" where="start" style-ref="keyword"/>
+       		    <context sub-pattern="0" where="end" style-ref="keyword"/>
+            	<context ref="actionscript:actionscript:*"/>
+            </include>
+        </context>
+        
+        <replace id="xml:cdata" ref="as-block"/>
+        
+        <context id="mxml">
+            <include>
+				<context ref="xml:xml:*"/>
+                <context ref="as-block"/>
+            </include>
+        </context>
+        
+    </definitions>
+</language>

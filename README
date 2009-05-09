@@ -1,0 +1,21 @@
+These files add ActionScript and MXML syntax highlighting to gEdit
+
+Instructions:
+
+1 - Place 'actionscript.lang' and 'mxml.lang' in '/usr/share/gtksourceview-2.0/language-specs/'
+    
+    sudo cp actionscript.lang /usr/share/gtksourceview-2.0/language-specs/
+    sudo cp mxml.lang /usr/share/gtksourceview-2.0/language-specs/
+
+2 - Place 'actionscript.xml' and 'mxml.xml' in '/usr/share/mime/packages'
+    
+    sudo cp actionscript.xml /usr/share/mime/packages/
+    sudo cp mxml.xml /usr/share/mime/packages/
+
+3 - Update the 'mime' database :
+    
+    sudo update-mime-database /usr/share/mime
+
+4 - Voila, you're done
+
+
